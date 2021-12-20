@@ -8,9 +8,9 @@ import 'package:url_launcher/url_launcher.dart';
 class ApplicationController extends GetxController {
   var applications = Applications().obs;
 
+  //application api
   Future<void> callApplicationList(String? token) async {
     var response = await ApiServices().applicationList(token);
-
     if (response.statusCode == 200) {
       applications.value = Applications.fromJson(response.body);
       Get.to(ApplicationPage());
