@@ -1,6 +1,6 @@
-import 'package:applications/features/data/datasources/local_database.dart';
-import 'package:applications/features/domain/entities/applications.dart';
-import 'package:applications/features/domain/repositories/applications_repository.dart';
+import 'package:applications/features/applications/data/datasources/local_database.dart';
+import 'package:applications/features/applications/domain/entities/applications.dart';
+import 'package:applications/features/applications/domain/repositories/applications_repository.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 

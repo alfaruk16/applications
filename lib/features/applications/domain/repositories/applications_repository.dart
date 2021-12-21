@@ -1,8 +1,8 @@
-import 'package:applications/features/data/datasources/api_responses.dart';
-import 'package:applications/features/data/models/login.dart';
-import 'package:applications/features/domain/entities/applications.dart';
-import 'package:applications/features/presentation/getx/controllers/applications_controller.dart';
-import 'package:applications/features/presentation/getx/controllers/login_controller.dart';
+import 'package:applications/features/applications/data/datasources/api_responses.dart';
+import 'package:applications/features/applications/data/models/login.dart';
+import 'package:applications/features/applications/domain/entities/applications.dart';
+import 'package:applications/features/applications/presentation/getx/controllers/applications_controller.dart';
+import 'package:applications/features/applications/presentation/getx/controllers/login_controller.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';

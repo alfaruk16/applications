@@ -1,6 +1,6 @@
 
 import 'package:applications/core/network/network_info.dart';
-import 'package:applications/features/domain/usecases/login.dart';
+import 'package:applications/features/applications/domain/usecases/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:fluttertoast/fluttertoast.dart';

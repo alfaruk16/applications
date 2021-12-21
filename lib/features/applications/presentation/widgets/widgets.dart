@@ -1,4 +1,4 @@
-import 'package:applications/features/presentation/getx/controllers/login_controller.dart';
+import 'package:applications/features/applications/presentation/getx/controllers/login_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

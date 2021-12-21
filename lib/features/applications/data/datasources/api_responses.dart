@@ -1,10 +1,11 @@
-import 'package:applications/core/entities/remote_data_non_field.dart';
-import 'package:applications/features/data/models/login.dart';
-import 'package:applications/features/domain/entities/access_data.dart';
-import 'package:applications/features/domain/entities/applications.dart';
-import 'package:applications/features/presentation/getx/controllers/applications_controller.dart';
-import 'package:applications/features/presentation/getx/controllers/login_controller.dart';
-import 'package:applications/features/presentation/pages/application_page.dart';
+
+import 'package:applications/features/applications/data/models/login.dart';
+import 'package:applications/features/applications/domain/entities/access_data.dart';
+import 'package:applications/features/applications/domain/entities/applications.dart';
+import 'package:applications/features/applications/domain/entities/remote_data_non_field.dart';
+import 'package:applications/features/applications/presentation/getx/controllers/applications_controller.dart';
+import 'package:applications/features/applications/presentation/getx/controllers/login_controller.dart';
+import 'package:applications/features/applications/presentation/pages/application_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -12,6 +13,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import 'api_services.dart';
 import 'local_database.dart';
+
 
 class ApiResponse{
 
