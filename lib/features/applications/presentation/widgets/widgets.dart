@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Widgets {
-
   final loginController = Get.find<LoginController>();
 
   Widget textField(String label, TextInputType inputType,
@@ -33,17 +32,24 @@ class Widgets {
                         left: 16, right: 16, top: 10, bottom: 10)))));
   }
 
-  Widget button(String text, Color color) {
+  Widget loginButton() {
     return ClipRRect(
         borderRadius: BorderRadius.circular(30.0),
         child: Container(
-          color: color,
+          color: Colors.blue,
           padding:
-              const EdgeInsets.only(top: 12, bottom: 12, left: 40, right: 40),
-          child: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+              const EdgeInsets.only(top: 5, bottom: 5, left: 40, right: 40),
+          child: TextButton(
+            onPressed: () {
+              loginController.login();
+            },
+            child: const Text(
+              "Login",
+              style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ));
   }
@@ -62,7 +68,7 @@ class Widgets {
         color: Colors.black54,
         child: const Center(
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-            )));
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+        )));
   }
 }

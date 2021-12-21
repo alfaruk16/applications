@@ -47,22 +47,18 @@ class LoginPage extends StatelessWidget {
                         height: 0,
                       )),
                 const SizedBox(height: 16),
-                GestureDetector(
-                    onTap: () {
-                      loginController.login();
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Widgets().button("Login", Colors.blue),
-                    ))
+                Container(
+                  alignment: Alignment.center,
+                  child: Widgets().loginButton(),
+                )
               ],
             ),
           ),
           Obx(() => loginController.isLoading.value
               ? Widgets().loader()
               : const SizedBox(
-            height: 0,
-          )),
+                  height: 0,
+                )),
         ],
       )),
     );

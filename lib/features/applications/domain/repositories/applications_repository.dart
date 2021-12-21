@@ -1,8 +1,10 @@
 import 'package:applications/features/applications/data/datasources/api_responses.dart';
+import 'package:applications/features/applications/data/datasources/local_database.dart';
 import 'package:applications/features/applications/data/models/login.dart';
 import 'package:applications/features/applications/domain/entities/applications.dart';
 import 'package:applications/features/applications/presentation/getx/controllers/applications_controller.dart';
 import 'package:applications/features/applications/presentation/getx/controllers/login_controller.dart';
+import 'package:applications/features/applications/presentation/pages/application_page.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,10 @@ class ApplicationRepository {
     login.username = userName;
     login.password = password;
 
-    ApiResponse().loginApi(login);
+    applicationController.applications.value = await ApiResponse().loginApi(login);
+    await applicationController.box.write(LocalDatabase().applications, applicationController.applications.value.toJson());
+    Get.to(ApplicationPage());
+
   }
 
   Future<void> applicationItemClicked(UserData data) async {
