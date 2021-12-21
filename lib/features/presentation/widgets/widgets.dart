@@ -1,7 +1,12 @@
+import 'package:applications/features/presentation/getx/controllers/login_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Widgets {
+
+  final loginController = Get.find<LoginController>();
+
   Widget textField(String label, TextInputType inputType,
       TextEditingController controller, FocusNode focusNode, bool obSecure) {
     return Container(
@@ -11,7 +16,9 @@ class Widgets {
         child: ClipRRect(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             child: TextField(
-                onChanged: (text) {},
+                onChanged: (text) {
+                  loginController.checkTextField(controller);
+                },
                 controller: controller,
                 keyboardType: inputType,
                 obscureText: obSecure,
@@ -46,5 +53,16 @@ class Widgets {
       text,
       style: TextStyle(color: color, fontSize: fontSize),
     );
+  }
+
+  Widget loader() {
+    return Container(
+        height: Get.height,
+        width: Get.width,
+        color: Colors.black54,
+        child: const Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            )));
   }
 }

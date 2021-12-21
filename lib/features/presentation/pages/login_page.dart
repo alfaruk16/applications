@@ -1,4 +1,3 @@
-
 import 'package:applications/features/presentation/getx/controllers/login_controller.dart';
 import 'package:applications/features/presentation/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,35 +13,57 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
+          child: Stack(
+        children: [
+          Container(
             padding: const EdgeInsets.all(20),
-        alignment: Alignment.center,
-        color: Colors.red,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Widgets().textField(
-                'User Name',
-                TextInputType.emailAddress,
-                loginController.emailController,
-                loginController.emailFocusNode,
-                false),
-            const SizedBox(height: 8),
-            Widgets().textField(
-                'Password',
-                TextInputType.visiblePassword,
-                loginController.passwordController,
-                loginController.passwordFocusNode,
-                true),
-            const SizedBox(height: 16),
-            GestureDetector(
-              onTap: (){
-                loginController.login();
-              },
-              child: Widgets().button("Login", Colors.blue),)
-
-          ],
-        ),
+            alignment: Alignment.center,
+            color: Colors.red,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Widgets().textField(
+                    'User Name',
+                    TextInputType.emailAddress,
+                    loginController.userNameController,
+                    loginController.userNameFocusNode,
+                    false),
+                Obx(() => loginController.userNameRequired.value
+                    ? Widgets().text("User Name Required", Colors.white, 14)
+                    : const SizedBox(
+                        height: 0,
+                      )),
+                const SizedBox(height: 8),
+                Widgets().textField(
+                    'Password',
+                    TextInputType.visiblePassword,
+                    loginController.passwordController,
+                    loginController.passwordFocusNode,
+                    true),
+                Obx(() => loginController.passwordRequired.value
+                    ? Widgets().text("Password Required", Colors.white, 14)
+                    : const SizedBox(
+                        height: 0,
+                      )),
+                const SizedBox(height: 16),
+                GestureDetector(
+                    onTap: () {
+                      loginController.login();
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Widgets().button("Login", Colors.blue),
+                    ))
+              ],
+            ),
+          ),
+          Obx(() => loginController.isLoading.value
+              ? Widgets().loader()
+              : const SizedBox(
+            height: 0,
+          )),
+        ],
       )),
     );
   }

@@ -1,7 +1,7 @@
 class Applications {
   final String? message;
   final int? status;
-  final List<Data>? data;
+  final List<UserData>? data;
 
   Applications({
     this.message,
@@ -12,7 +12,7 @@ class Applications {
   Applications.fromJson(Map<String, dynamic> json)
       : message = json['message'] as String?,
         status = json['status'] as int?,
-        data = (json['data'] as List?)?.map((dynamic e) => Data.fromJson(e as Map<String,dynamic>)).toList();
+        data = (json['data'] as List?)?.map((dynamic e) => UserData.fromJson(e as Map<String,dynamic>)).toList();
 
   Map<String, dynamic> toJson() => {
     'message' : message,
@@ -21,7 +21,7 @@ class Applications {
   };
 }
 
-class Data {
+class UserData {
   final int? id;
   final String? applicantName;
   final String? weblink;
@@ -40,7 +40,7 @@ class Data {
   final String? createdUserName;
   final String? createdAt;
 
-  Data({
+  UserData({
     this.id,
     this.applicantName,
     this.weblink,
@@ -60,7 +60,7 @@ class Data {
     this.createdAt,
   });
 
-  Data.fromJson(Map<String, dynamic> json)
+  UserData.fromJson(Map<String, dynamic> json)
       : id = json['id'] as int?,
         applicantName = json['applicant_name'] as String?,
         weblink = json['weblink'] as String?,
