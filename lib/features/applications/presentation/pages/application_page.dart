@@ -16,10 +16,13 @@ class ApplicationPage extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: Container(
-                margin: const EdgeInsets.all(20),
+                margin: const EdgeInsets.only(left: 20, right: 20),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 16,
+                      ),
                       Widgets().text("Applications", Colors.black, 20),
                       const SizedBox(
                         height: 16,
@@ -32,43 +35,54 @@ class ApplicationPage extends StatelessWidget {
                           physics: const ClampingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
                             return GestureDetector(
-                              onTap: (){
-                                applicationController.applicationItemClicked(applicationController
-                                    .applications.value.data![index]);
-                              },
+                                onTap: () {
+                                  applicationController.applicationItemClicked(
+                                      applicationController
+                                          .applications.value.data![index]);
+                                },
                                 child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                    width: Get.width / 2,
-                                    child: Card(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                      ),
-                                      child: ClipRRect(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(15)),
-                                          child: CachedNetworkImage(
-                                            imageUrl: ApiServices().baseURL +
-                                                applicationController
-                                                    .applications
-                                                    .value
-                                                    .data![index]
-                                                    .logoImg!,
-                                            fit: BoxFit.cover,
-                                          )),
-                                    )),
-                                Widgets().text(
-                                    applicationController.applications.value
-                                        .data![index].applicantName!,
-                                    Colors.deepOrange,
-                                    18),
-                                const SizedBox(
-                                  height: 16,
-                                )
-                              ],
-                            ));
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                        width: 200,
+                                        height: 200,
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(15)),
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    ApiServices().baseURL +
+                                                        applicationController
+                                                            .applications
+                                                            .value
+                                                            .data![index]
+                                                            .logoImg!,
+                                                fit: BoxFit.fill,
+                                                placeholder: (context, url) =>
+                                                    const FittedBox(
+                                                  child: Icon(
+                                                    Icons.image,
+                                                    color: Colors.black54,
+                                                  ),
+                                                ),
+                                              )),
+                                        )),
+                                    Widgets().text(
+                                        applicationController.applications.value
+                                            .data![index].applicantName!,
+                                        Colors.deepOrange,
+                                        18),
+                                    const SizedBox(
+                                      height: 16,
+                                    )
+                                  ],
+                                ));
                           },
                         ),
                       ),
