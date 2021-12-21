@@ -28,25 +28,25 @@ The Application is split into a three layer architecture:
 
 The 3 layered architectural approach is majorly guided by clean architecture which provides a clear separation of concerns with its Abstraction Principle.
 
-- Presentation
+Presentation <br />
 app contains the UI files and handles binding of DI components from other modules. Binding of data is facilitated by jetpacks data binding by serving data from the viewmodel to the UI.The data being received is part of a viewstate class that has properties contained in the relevant state.
 
-- Domain
+Domain <br />
 The domain module contains domain model classes which represent the data we will be handling across presentation and data layer.
 
 Use cases are also provided in the domain layer and orchestrate the flow of data from the data layer onto the presentation layer and a split into modular pieces serving one particular purpose.
 
 The UseCases use a BaseUseCase interface that defines the parameters its taking in and output this helps in creating fakes using in testing.
 
-- Data
-data-remote:
+Data <br />
+data-remote <br />
 Handles data interacting with the network and is later serverd up to the presentation layer through domain object
 
-data-local:
+data-local <br />
 Handles persistence of object with Get Storage from.This module is responsible for handling all local related logic and serves up data to and from the presentation layer through domain objects.
 
 
-- Testing
+Testing <br />
 Each module has its own tests except for the domain module which is catered for since its part of the behavior under test.
 
 In the data-local module an in memory database is being used to run the tests,this makes it a little faster compared to an actual db.
