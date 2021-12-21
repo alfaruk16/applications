@@ -17,7 +17,6 @@ class ApplicationRepository {
     var login = Login();
     login.username = userName;
     login.password = password;
-
     ApiResponse().loginApi(login);
   }
 
